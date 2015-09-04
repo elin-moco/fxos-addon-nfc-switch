@@ -1,5 +1,6 @@
 (function ($$) {
-  var MANIFEST_URL = '/fxos-addon-nfc-switch/manifest.webapp';
+  //var MANIFEST_URL = 'app://cc83c151-9bcd-2f41-9611-6cf4dc95e79c/manifest.webapp';
+  var MANIFEST_URL = 'https://elin-moco.github.io/fxos-addon-nfc-switch/manifest.webapp';
 
   // If injecting into an app that was already running at the time
   // the app was enabled, simply initialize it.
@@ -86,7 +87,7 @@
 
   navigator.mozApps.mgmt.onenabledstatechange = function(event) {
     var app = event.application;
-    if (app.manifestURL.indexOf(MANIFEST_URL) > 0 && !app.enabled) {
+    if (app.manifestURL === MANIFEST_URL && !app.enabled) {
       uninitialize();
     }
   };
